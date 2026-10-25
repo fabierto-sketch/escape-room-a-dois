@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#18243a"><title>Escape Room a Dois</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero"><div class="eyebrow">UMA AVENTURA COOPERATIVA</div><h1>🔐 Escape Room <span>a Dois</span></h1><p>Dois jogadores, uma missão e uma saída. Só conseguem escapar se trabalharem juntos.</p></header>
+    <section id="lobby" class="panel">
+      <h2>Entrar na aventura</h2>
+      <label>O teu nome<input id="name" maxlength="24" placeholder="Ex.: Alberto" autocomplete="name"></label>
+      <div class="split"><div><h3>Criar sala</h3><p class="muted">A criação está reservada ao administrador.</p><label>Palavra-passe de administrador<input id="adminPassword" type="password" placeholder="Configurada no Render"></label><button id="createBtn">Criar sala privada</button></div><div><h3>Entrar numa sala</h3><label>Código da sala<input id="roomCode" maxlength="10" placeholder="Ex.: A1B2C3"></label><button id="joinBtn" class="secondary">Entrar na sala</button></div></div>
+      <p id="lobbyStatus" class="status" role="status"></p>
+    </section>
+    <section id="game" class="hidden">
+      <div class="roombar panel"><div><span class="muted">SALA PRIVADA</span><strong id="roomLabel">------</strong></div><button id="shareBtn" class="secondary">Copiar link para partilhar</button></div>
+      <div class="columns"><div class="maincol">
+        <section class="panel story"><div class="topline"><span id="stageLabel" class="tag">DESAFIO 1</span><span id="timer" class="timer">⏱ 00:00</span></div><h2 id="puzzleTitle">O mistério começa...</h2><p id="puzzleStory"></p><p class="hint"><strong>💡 Pista:</strong> <span id="puzzleHint"></span></p><form id="answerForm"><label for="answer">A vossa resposta</label><div class="answerline"><input id="answer" autocomplete="off" placeholder="Escrevam a resposta..." required><button type="submit">Desbloquear</button></div></form><p id="answerStatus" class="status" role="status"></p><div id="victory" class="victory hidden"><h2>🎉 Conseguiram!</h2><p>O farol está livre e vocês escaparam juntos. Uma boa equipa vence qualquer mistério. ❤️</p><button id="restartInfo" class="secondary">Jogar outra vez</button></div></section>
+        <section class="panel"><h3>Jogadores na sala</h3><div id="players" class="players"></div><p class="muted small">Partilhem ideias por chat ou liguem a câmara para resolver os enigmas juntos.</p></section>
+      </div><aside class="sidecol">
+        <section class="panel"><h3>💬 Chat</h3><div id="chat" class="chat" aria-live="polite"></div><form id="chatForm" class="chatline"><input id="chatInput" maxlength="400" placeholder="Escreve uma mensagem..." required><button type="submit" aria-label="Enviar mensagem">➤</button></form></section>
+        <section class="panel"><h3>📹 Câmara e microfone</h3><p class="muted small">Permite o acesso quando o navegador perguntar. A videochamada funciona em HTTPS (como no Render).</p><div class="video-grid"><video id="localVideo" autoplay playsinline muted></video><video id="remoteVideo" autoplay playsinline></video></div><div class="buttonrow"><button id="cameraBtn" class="secondary">Ligar câmara</button><button id="hangupBtn" class="danger">Desligar</button></div><p id="mediaStatus" class="status small" role="status"></p></section>
+      </aside></div>
+    </section>
+    <footer>Feito para resolver mistérios em equipa ❤️</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>

@@ -1,0 +1,9 @@
+{
+  "name": "escape-room-a-dois",
+  "version": "1.0.0",
+  "description": "Escape Room online cooperativo para dois jogadores, com salas privadas, chat e videochamada",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "express": "^4.21.2", "socket.io": "^4.8.1" }
+}
